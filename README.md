@@ -140,4 +140,4 @@ This project is deployed on **Vercel**. To deploy your own instance:
 
 ## 📄 License
 
-MIT © [Shubh](https://github.com/Shubhk02)
+[Shubh](https://github.com/Shubhk02)
