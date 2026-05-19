@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-surface text-slate-900 antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-200 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-slate-300; }
+
+  .safe-top  { padding-top: env(safe-area-inset-top); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+@layer components {
+  /* ── Cards ── */
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-slate-100/80;
+  }
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600
+           text-white font-semibold px-4 py-2.5 rounded-xl transition-all
+           active:scale-[0.97] shadow-sm;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-primary-50 hover:bg-primary-100
+           text-primary-600 font-semibold px-4 py-2.5 rounded-xl transition-all active:scale-[0.97];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-slate-500 hover:text-slate-800
+           hover:bg-surface-low font-medium px-3 py-2 rounded-xl transition-all;
+  }
+  .btn-accent {
+    @apply inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600
+           text-white font-semibold px-4 py-2.5 rounded-xl transition-all active:scale-[0.97];
+  }
+
+  /* ── Inputs ── */
+  .input {
+    @apply w-full bg-surface-low border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm
+           focus:outline-none focus:ring-2 focus:ring-primary-400/30 focus:border-primary-400
+           transition placeholder-slate-400 text-slate-800;
+  }
+
+  /* ── Status badges ── */
+  .badge-active {
+    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-0.5
+           rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100;
+  }
+  .badge-warning {
+    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-0.5
+           rounded-full bg-amber-50 text-amber-700 border border-amber-100;
+  }
+  .badge-critical {
+    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-0.5
+           rounded-full bg-red-50 text-red-600 border border-red-100 animate-pulse;
+  }
+  .badge-offline {
+    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-0.5
+           rounded-full bg-slate-100 text-slate-500;
+  }
+
+  /* ── Nav items ── */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
+           text-slate-500 hover:text-slate-800 hover:bg-surface-low transition-all cursor-pointer;
+  }
+  .nav-item-active {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold
+           bg-primary-500 text-white shadow-sm;
+  }
+
+  /* ── Section label ── */
+  .section-label {
+    @apply text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400 px-3 mb-1.5;
+  }
+
+  /* ── Alert chips ── */
+  .alert-chip-critical {
+    @apply text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-red-50 text-red-600 border border-red-100;
+  }
+  .alert-chip-warning {
+    @apply text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-600 border border-amber-100;
+  }
+  .alert-chip-info {
+    @apply text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-primary-50 text-primary-600 border border-primary-100;
+  }
+}
+
+/* ── Page transitions ── */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: fadeSlideIn 0.22s ease both;
+}

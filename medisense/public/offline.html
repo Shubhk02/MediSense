@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>MediSense — Offline</title>
+    <meta name="theme-color" content="#0f1117" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0f1117;
+        font-family: system-ui, sans-serif;
+        color: white;
+        text-align: center;
+        padding: 24px;
+      }
+      .icon {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        font-size: 32px;
+      }
+      h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 8px; }
+      p  { color: #64748b; font-size: 0.9rem; margin: 0 0 32px; line-height: 1.6; }
+      button {
+        background: #f59e0b;
+        color: white;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button:hover { background: #d97706; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="icon">📡</div>
+      <h1>You're Offline</h1>
+      <p>MediSense requires a network connection to receive<br>live IV drip data. Please check your connection.</p>
+      <button onclick="window.location.reload()">Try Again</button>
+    </div>
+  </body>
+</html>
